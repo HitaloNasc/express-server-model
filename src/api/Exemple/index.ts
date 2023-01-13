@@ -1,9 +1,18 @@
-import list from './list';
+// global
+import { Knex } from 'knex';
+// local
+// entity
+import { list } from './list';
+import { getByID } from './getByID';
 
-export default class Exemple {
-  list: Function;
+export class ExempleController {
+  protected knex: Knex;
+  public list: Function;
+  public getByID: Function;
 
-  constructor() {
-    this.list = list;
+  constructor(knex: Knex) {
+    this.knex = knex;
+    this.list = list.bind(this);
+    this.getByID = getByID.bind(this);
   }
 }

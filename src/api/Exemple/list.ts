@@ -1,17 +1,11 @@
-import { Errors } from '../../common/lib/http-exeption';
+// global
+// local
+// entity
+import { ExempleController } from '.';
 import { Exemple } from './interface';
-import knex from '../../common/knex';
 
-async function list() {
+export async function list(this: ExempleController) {
   console.log('api - exemple - list');
-
-  // const rows = knex<Exemple>('exemple').select(['id', 'name', 'description']);
-  const query = knex.from('exemple').select(['exemple.*']);
-
-  const rows = await query;
-
+  const rows = await this.knex<Exemple>('exemple').select(['exemple.*']);
   return rows;
-  // throw Errors.INTERNAL_SERVER_ERROR()
 }
-
-export default list;

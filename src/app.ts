@@ -1,6 +1,8 @@
+// global
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
+// local
 import routes from './routes';
 import { notFoundHandler } from './middleware/not-found.middleware';
 
